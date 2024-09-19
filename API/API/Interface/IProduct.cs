@@ -4,6 +4,7 @@ namespace API.Interface
 {
     public interface IProduct
     {
-        IList<Product> AddProduct();
+        string AddProduct(Product product);
+        IEnumerable<Product> GetProduct();
     }
 }

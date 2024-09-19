@@ -1,5 +1,6 @@
 ﻿using API.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Model.Entities;
 
 namespace API.Controllers.Products
 {
@@ -13,10 +14,17 @@ namespace API.Controllers.Products
         {
             _product = product;
         }
-        public IActionResult InsertProduct()
+        [HttpPost("ADDPRODUCT")]
+        public string InsertProduct(Product product)
         {
-            return Ok();
+            var res = _product.AddProduct(product);
+            return res;
 
+        }
+        [HttpGet("GETPRODUCT")]
+        public IEnumerable<Product> Getproduct()
+        {
+            return _product.GetProduct();
         }
     }
 }
